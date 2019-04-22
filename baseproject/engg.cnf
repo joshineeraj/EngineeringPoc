@@ -1,0 +1,5 @@
+[client]
+database = enggdb
+user = engguser
+password = enggpass
+default-character-set = utf8
