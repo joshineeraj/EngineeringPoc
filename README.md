@@ -17,3 +17,8 @@ CREATE DATABASE enggdb charset=utf8;
 GRANT ALL PRIVILEGES ON enggdb.* TO 'engguser'@'localhost';
 FLUSH PRIVILEGES;
 quit
+
+#Start Gunicorn
+gunicorn baseproject.wsgi:application --bind=0.0.0.0:9002 --workers=4
+
+
