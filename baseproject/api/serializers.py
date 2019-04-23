@@ -30,8 +30,6 @@ class ProductionAreaSerializer(serializers.HyperlinkedModelSerializer):
 Serializer for FeatureRequest
 """
 class FeatureRequestSerializer(serializers.HyperlinkedModelSerializer):
-    client =  ClientSerializer()
-    production_area = ProductionAreaSerializer()
     class Meta:
         model = FeatureRequest
         fields = ('id','client', 'title','description','priority', 'production_area','target_date', 'added', 'updated')
