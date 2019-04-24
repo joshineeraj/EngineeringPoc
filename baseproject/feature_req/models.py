@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.validators import MinValueValidator
+from django.core.exceptions import ValidationError
 import datetime
 # Create your models here.
 
@@ -30,7 +32,7 @@ class FeatureRequest(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True, default="")
     client = models.ForeignKey('Client', on_delete=models.CASCADE)
-    priority = models.PositiveIntegerField(blank=False, default=1)
+    priority = models.PositiveIntegerField(blank=False, null=False, validators=[MinValueValidator(1)])
     production_area = models.ForeignKey('ProductionArea', on_delete=models.CASCADE)
     target_date = models.DateField(default=datetime.date.today)
     added = models.DateTimeField(auto_now_add=True)
@@ -41,5 +43,6 @@ class FeatureRequest(models.Model):
         return self.title
     def __str__(self):
         return self.title
+    
     def save(self, *args, **kwargs):
         super(FeatureRequest, self).save(*args, **kwargs)

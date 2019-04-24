@@ -22,3 +22,5 @@ class FeatureRequestViewSet(viewsets.ModelViewSet):
     """
     queryset = FeatureRequest.objects.all()
     serializer_class = FeatureRequestSerializer
+    
+
