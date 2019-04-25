@@ -1,0 +1,25 @@
+{% load static %}
+<!-- Header Section Start -->
+    <!-- Navigation -->
+    
+    <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark opacity07">
+       <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavCollapser" aria-controls="topNavCollapser" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="topNavCollapser">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'clients' %}"">Clients</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'production_area' %}">Production Areas</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </nav>
+    <!-- Navigation End-->
+ <!-- Header Section End -->

@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
-# Create your views here.
+class IndexView(TemplateView):
+    template_name = "index.html"
+
+class ClientView(TemplateView):
+    template_name = "client.html"
+
+class ProductionAreaView(TemplateView):
+    template_name = "production_area.html"

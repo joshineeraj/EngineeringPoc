@@ -7,7 +7,7 @@ EngineeringPoc to Create Feature Requests
 #Next, open mysql using the root account
 
 
-$ mysql -u root -p
+$ sudo mysql
 Enter password:
 
 Now that we are inside the mysql console with root privileges, we will create a database, a user, and grant all privileges to that user:
@@ -18,6 +18,7 @@ GRANT ALL PRIVILEGES ON enggdb.* TO 'engguser'@'localhost';
 FLUSH PRIVILEGES;
 quit
 
+python manage.py collectstatic
 #Start Gunicorn
 gunicorn baseproject.wsgi:application --bind=0.0.0.0:9002 --workers=4
 
