@@ -10,25 +10,19 @@
 
         <div class="row justify-content-center mt-4 mb-4">
               <div class="d-flex card col-xs-12 col-md-10 p-0">
-                <div class="card-header">Feature requests</div>
-                <div class="card-body justify-content-center mt-4 mb-4">
+                <div class="card-body justify-content-center">
                     <div class="card col-xs-10">
-                        <div class="card-body">
-                            
+                        <div class="card-header">Create feature request</div>
+                        <div class="card-body p-2">
                             <div class="form-row">
                                 <div class="col-md-4 mb-3">
                                     <label for="validationClient">Client</label>
-                                    <select class="form-control" id="validationClient">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                    <select class="form-control form-control-sm" id="validationClient" data-bind="options: clients, optionsText: 'title', optionsValue: 'id', value: selected_client">
                                     </select>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom02">Title</label>
-                                    <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
+                                    <input type="text" class="form-control form-control-sm" id="validationCustom02" placeholder="Title" data-bind="value:title" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -36,17 +30,15 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationDescription">Description</label>
                                     <div class="input-group">
-                                            <textarea class="form-control" id="validationDescription" rows="3"></textarea>
-                                        <div class="invalid-feedback">
-                                            Please choose a username.
-                                        </div>
+                                            <textarea class="form-control form-control-sm" data-bind="value:description" id="validationDescription" rows="3"></textarea>
+
                                     </div>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-6 mb-3">
                                     <label for="validationPriority">Priority</label>
-                                    <input type="number" class="form-control" id="validationPriority" placeholder="Priority" required>
+                                    <input type="number" class="form-control form-control-sm" data-bind="value:selected_priority" id="validationPriority" placeholder="Priority" required>
                                     <div class="invalid-feedback">
                                         Please provide a valid priority.
                                     </div>
@@ -54,34 +46,57 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="validationProductionArea">Production area</label>
                                     
-                                    <select class="form-control" id="validationProductionArea">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                    <select class="form-control form-control-sm" id="validationProductionArea" data-bind="options: productionAreas, optionsText: 'title', optionsValue: 'id', value: selected_production_area">
                                     </select>
                                     <div class="invalid-feedback">
-                                        Please provide a valid state.
+                                        Please provide a valid production area.
                                     </div>
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationDate">Target date</label>
-                                    <input type="date" class="form-control" id="validationDate" placeholder="Zip" required>
+                                    <input type="date" class="form-control form-control-sm" id="validationDate" placeholder="Zip" required>
                                     <div class="invalid-feedback">
-                                        Please provide a valid zip.
+                                        Please provide a valid target date.
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">Submit form</button>
+                                <button class="btn btn-primary" data-bind="click: createFeatureRequest">Add feature request</button>
                             </div>
                             
                         </div>
                     </div>
                     <div class="card mt-4 grid-table">
+                        <div class="card-header">Request list</div>
                         <div class="card-body">
-                            Grid
+                                <span>Showing total 
+                                    <b data-bind="text:count"></b>
+                                    records
+                                </span>
+                                <table class="table table-sm table-striped">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Client</th>
+                                        <th scope="col">Priority</th>
+                                        <th scope="col">Production Area</th>
+                                        <th scope="col">Target Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody data-bind="foreach: rows">
+                                        <tr>
+                                        <th scope="row" data-bind="text: id"></th>
+                                        <td data-bind="text: title"></td>
+                                        <td data-bind="text: description"></td>
+                                        <td data-bind="text: client"></td>
+                                        <td data-bind="text: priority"></td>
+                                        <td data-bind="text: production_area"></td>
+                                        <td data-bind="text: target_date"></td>
+                                        </tr> 
+                                    </tbody>
+                                    </table>
                         </div>
                     </div>
                 </div>

@@ -33,8 +33,8 @@ class FeatureRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = FeatureRequest
         fields = ('id','client', 'title','description','priority', 'production_area','target_date', 'added', 'updated')
+    
     def create(self, validated_data):
-        
         client_id = validated_data.get("client", None)
         priority = validated_data.get("priority", None)
         if priority is not None:
