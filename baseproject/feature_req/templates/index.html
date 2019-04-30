@@ -17,12 +17,12 @@
                             <div class="form-row">
                                 <div class="col-md-4 mb-3">
                                     <label for="validationClient">Client</label>
-                                    <select class="form-control form-control-sm" id="client" data-bind="options: clients, optionsText: 'title', optionsValue: 'id', value: selected_client">
+                                    <select class="form-control form-control-sm" id="validationClient" data-bind="options: clients, optionsText: 'title', optionsValue: 'id', value: selected_client">
                                     </select>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label for="validationCustom02">Title</label>
-                                    <input type="text" class="form-control form-control-sm" id="title" placeholder="Title" data-bind="value:title" required>
+                                    <label for="validationTitle">Title</label>
+                                    <input type="text" class="form-control form-control-sm" id="validationTitle" placeholder="Title" data-bind="value:title" required>
                                     <div class="invalid-feedback">
                                         
                                     </div>
@@ -30,7 +30,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationDescription">Description</label>
                                     <div class="input-group">
-                                            <textarea class="form-control form-control-sm" data-bind="value:description" id="validationDescription" rows="3"></textarea>
+                                        <textarea class="form-control form-control-sm" data-bind="value:description" id="validationDescription" rows="3"></textarea>
                                     </div>
                                 </div>
                             </div>

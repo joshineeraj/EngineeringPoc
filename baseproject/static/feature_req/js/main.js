@@ -110,7 +110,6 @@ var viewModel = {
 ko.applyBindings(viewModel);
 
 $(document).ready(function() {
-
     if(authToken==null){
         viewModel.getAuthToken();
     }
