@@ -15,7 +15,7 @@ var viewModel = {
     clients:ko.observableArray(),
     productionAreas:ko.observableArray(),
     count: ko.observable(),
-    errors: ko.observableArray(),
+   
     getAuthToken: function(){
         /* Authenticates user, gets the authToken and then Store it in global variable */
         $.post(api_path + "/get-auth-token/", 
@@ -78,30 +78,27 @@ var viewModel = {
     },
     createFeatureRequest: function(){
         /*Create a Feature request. */
+        post_data = {
+            priority:this.selected_priority,
+            client:this.selected_client,
+            title:this.title,
+            description:this.description,
+            production_area: this.selected_production_area,
+            target_date:this.target_date
+        }
         $.ajax({
             type: 'POST',
             url: api_path + "/feature_requests/",
-            data: {
-                priority:this.selected_priority,
-                client:this.selected_client,
-                title:this.title,
-                description:this.description,
-                production_area: this.selected_production_area,
-                target_date:this.target_date
-            },
+            data: post_data,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('Authorization', 'Bearer '+authToken);
             },    
             context: this,
             success: function(data) {
-                this.errors.removeAll();
-                /*Append the created data to the observable rows to reflect added record in list*/
-                this.rows.push(data);
-                /*Increment the count of the records by one */
-                this.count(this.count()+1);
+                this.getFeatureRequests()
             }.bind(this), 
             error: function(errors){
-                this.errors(errors);
+                
             }
 
         });
