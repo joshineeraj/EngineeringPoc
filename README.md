@@ -1,5 +1,5 @@
 # EngineeringPoc
-An application interface to Create Feature Requests. 
+An application interface to create feature requests. 
 A feature request is a request for a feauture into the existing piece of software
 
 
