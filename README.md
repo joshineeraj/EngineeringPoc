@@ -44,4 +44,9 @@ Start Gunicorn
 ----------------
 `gunicorn baseproject.wsgi:application --bind=0.0.0.0:9015 --workers=4`
 
+Application Demo URL:
+--------------------
+ [http://xhr.one](http://xhr.one)
+
+
 
