@@ -13,7 +13,7 @@
                 <div class="card-body justify-content-center">
                     <div class="card col-xs-10">
                         <div class="card-header">Create feature request</div>
-                        <div class="card-body p-2">
+                        <div class="card-body p-2 small">
                             <div class="form-row">
                                 <div class="col-md-4 mb-3">
                                     <label for="validationClient">Client</label>
@@ -23,14 +23,11 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationTitle">Title</label>
                                     <input type="text" class="form-control form-control-sm" id="validationTitle" placeholder="Title" data-bind="value:title" required>
-                                    <div class="invalid-feedback">
-                                        
-                                    </div>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="validationDescription">Description</label>
                                     <div class="input-group">
-                                        <textarea class="form-control form-control-sm" data-bind="value:description" id="validationDescription" rows="3"></textarea>
+                                        <textarea class="form-control form-control-sm" data-bind="value:description" id="validationDescription" rows="2"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -38,25 +35,16 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="validationPriority">Priority</label>
                                     <input type="number" min="1" class="form-control form-control-sm" data-bind="value:selected_priority" id="validationPriority" placeholder="Priority" required>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid priority.
-                                    </div>
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationProductionArea">Production area</label>
                                     
                                     <select class="form-control form-control-sm" id="validationProductionArea" data-bind="options: productionAreas, optionsText: 'title', optionsValue: 'id', value: selected_production_area">
                                     </select>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid production area.
-                                    </div>
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="validationDate">Target date</label>
-                                    <input type="date" class="form-control form-control-sm" id="validationDate" placeholder="Zip" required>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid target date.
-                                    </div>
+                                    <input type="date" data-bind="value:target_date" class="form-control form-control-sm" id="validationDate" placeholder="Zip" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -67,7 +55,7 @@
                     </div>
                     <div class="card mt-4 grid-table">
                         <div class="card-header">Request list</div>
-                        <div class="card-body">
+                        <div class="card-body small">
                                 <span>Showing total 
                                     <b data-bind="text:count"></b>
                                     records

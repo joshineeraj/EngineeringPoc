@@ -4,13 +4,14 @@ var authToken = null;
 
 
 /* Adding viewModel */
+currentDate = (new Date()).toISOString().split('T')[0];
 var viewModel = {
-    title: ko.observable(),
+    title: ko.observable("Title").extend({required: true}),
     description:ko.observable(),
     selected_priority: ko.observable().extend({ min: 1 }),
     selected_client: ko.observable(), 
     selected_production_area: ko.observable(), 
-    target_date:ko.observable(),
+    target_date:ko.observable(currentDate).extend({required: true}).extend({min: currentDate }),
     rows: ko.observableArray(),
     clients:ko.observableArray(),
     productionAreas:ko.observableArray(),
@@ -95,10 +96,10 @@ var viewModel = {
             },    
             context: this,
             success: function(data) {
-                this.getFeatureRequests()
+                this.getFeatureRequests();
             }.bind(this), 
             error: function(errors){
-                
+                debugger;
             }
 
         });
