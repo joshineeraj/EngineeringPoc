@@ -1,25 +1,47 @@
 # EngineeringPoc
-EngineeringPoc to Create Feature Requests
+An application interface to Create Feature Requests. 
+A feature request is a request for a feauture into the existing piece of software
 
 
-#Create a MySQL Database
+Prerequisites
+----------------
+- Python version >= 3
 
-#Next, open mysql using the root account
+Installation
+-------------
+Navigate to application folder and run 
+` pip install -r requirements.txt`
 
 
-$ sudo mysql
+Next, open mysql using the root account
+---------------------------------------
+`
+$ sudo mysql`
+`
 Enter password:
+`
 
 Now that we are inside the mysql console with root privileges, we will create a database, a user, and grant all privileges to that user:
-
+```
 CREATE USER 'engguser'@'localhost' IDENTIFIED BY 'enggpass';
 CREATE DATABASE enggdb charset=utf8;
 GRANT ALL PRIVILEGES ON enggdb.* TO 'engguser'@'localhost';
 FLUSH PRIVILEGES;
 quit
+```
 
-python manage.py collectstatic
-#Start Gunicorn
-gunicorn baseproject.wsgi:application --bind=0.0.0.0:9002 --workers=4
+Apply DB migrations:
+-------------------
+```
+  $ python manage.py makemigrations
+  $ python manage.py migrate
+```
+Collect Static files:
+---------------------
+`python manage.py collectstatic`
+
+Start Gunicorn
+----------------
+`gunicorn baseproject.wsgi:application --bind=0.0.0.0:9015 --workers=4`
 
 
