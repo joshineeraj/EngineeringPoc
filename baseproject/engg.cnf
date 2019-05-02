@@ -3,6 +3,3 @@ database = enggdb
 user = engguser
 password = enggpass
 default-character-set = utf8
-'TEST': {
-            'NAME': 'testdb',
-        },
