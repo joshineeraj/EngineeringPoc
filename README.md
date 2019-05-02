@@ -1,6 +1,6 @@
 # EngineeringPoc
 An application interface to create feature requests. 
-A feature request is a request for a feauture into the existing piece of software
+A feature request is a request for a feature into the existing piece of software
 
 
 Prerequisites
@@ -26,6 +26,7 @@ Now that we are inside the mysql console with root privileges, we will create a 
 CREATE USER 'engguser'@'localhost' IDENTIFIED BY 'enggpass';
 CREATE DATABASE enggdb charset=utf8;
 GRANT ALL PRIVILEGES ON enggdb.* TO 'engguser'@'localhost';
+GRANT ALL PRIVILEGES ON testdb.* TO 'engguser'@'localhost';
 FLUSH PRIVILEGES;
 quit
 ```

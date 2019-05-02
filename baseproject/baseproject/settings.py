@@ -88,6 +88,9 @@ DATABASES = {
         'OPTIONS': {
             'read_default_file': CONF_FILE,
          },
+        'TEST': {
+            'NAME': 'testdb',
+        },
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
