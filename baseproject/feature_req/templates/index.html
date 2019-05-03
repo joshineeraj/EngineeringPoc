@@ -11,6 +11,11 @@
         <div class="row justify-content-center mt-4 mb-4">
               <div class="d-flex card col-xs-12 col-md-10 p-0">
                 <div class="card-body justify-content-center">
+                    <div class="form-messages alert" role="alert" 
+                        data-bind="class: messageStatus">
+                        <span data-bind="class: glyphStatus" aria-hidden="true"></span>
+                        <span class="message-text" data-bind="text:messageText"></span>
+                    </div>
                     <div class="card col-xs-10">
                         <div class="card-header">Create feature request</div>
                         <div class="card-body p-2 small">

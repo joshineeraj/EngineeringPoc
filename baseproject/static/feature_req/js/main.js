@@ -6,17 +6,17 @@ var authToken = null;
 /* Adding viewModel */
 currentDate = (new Date()).toISOString().split('T')[0];
 var viewModel = {
-    title: ko.observable("Title").extend({required: true}),
+    title: ko.observable().extend({required: true}),
     description:ko.observable(),
     selected_priority: ko.observable(1).extend({ min: 1 }),
     selected_client: ko.observable(), 
     selected_production_area: ko.observable(), 
-    target_date:ko.observable(currentDate).extend({required: true}).extend({min: currentDate }),
+    target_date:ko.observable(currentDate).extend({required: true, min: currentDate}),
     rows: ko.observableArray(),
     clients:ko.observableArray(),
     productionAreas:ko.observableArray(),
     count: ko.observable(),
-   
+    messageText: ko.observable(""),
     getAuthToken: function(){
         /* Authenticates user, gets the authToken and then Store it in global variable */
         $.post(api_path + "/get-auth-token/", 
@@ -79,6 +79,12 @@ var viewModel = {
     },
     createFeatureRequest: function(){
         /*Create a Feature request. */
+
+        this.errors = ko.validation.group([this.title, 
+            this.description, this.selected_client, 
+            this.selected_priority, this.selected_production_area, this.target_date]);
+        
+        
         post_data = {
             priority:this.selected_priority,
             client:this.selected_client,
@@ -96,10 +102,11 @@ var viewModel = {
             },    
             context: this,
             success: function(data) {
+                this.messageText("Data inserted successfully.")
                 this.getFeatureRequests();
             }.bind(this), 
             error: function(errors){
-                debugger;
+                this.messageText("Please check your form for errors");
             }
 
         });
