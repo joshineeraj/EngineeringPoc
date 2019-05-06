@@ -79,12 +79,12 @@ var viewModel = {
     },
     createFeatureRequest: function(){
         /*Create a Feature request. */
-
-        this.errors = ko.validation.group([this.title, 
-            this.description, this.selected_client, 
-            this.selected_priority, this.selected_production_area, this.target_date]);
         
-        
+        if(this.errors().length > 0){
+            this.errors.showAllMessages(true);
+            this.messageText("Please check your form for errors");
+            return false;
+        }
         post_data = {
             priority:this.selected_priority,
             client:this.selected_client,
@@ -112,6 +112,24 @@ var viewModel = {
         });
     }
 };
+
+viewModel.errors = ko.validation.group([viewModel.title, 
+    viewModel.description, viewModel.selected_client, 
+    viewModel.selected_priority, viewModel.selected_production_area, 
+    viewModel.target_date]);
+
+viewModel.messageStatus = ko.pureComputed(function() {
+    if(viewModel.errors().length > 0){
+        viewModel.errors.showAllMessages(true);
+        viewModel.messageText("Please check your form for errors");
+        return ("alert alert-danger");
+    }else{
+        viewModel.messageText("Form looks valid and ready to be submitted.")
+        return ("alert alert-success");
+    }
+});
+
+
 ko.applyBindings(viewModel);
 
 $(document).ready(function() {
