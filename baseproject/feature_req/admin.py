@@ -1,7 +1,5 @@
 from django.contrib import admin
 from feature_req import models
-from django.contrib.auth.models import User
-from django.contrib.admin import AdminSite
 
 # Register your models here.
 

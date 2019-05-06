@@ -153,7 +153,6 @@ var getProductionAreaTitle = function(production_area_id) {
     var matchingProdAreaList = viewModel.productionAreas().filter(function(each_prod_area){
         return (each_prod_area.id == production_area_id);
     });
-    console.log(matchingProdAreaList[0], matchingProdAreaList);
     var title = matchingProdAreaList[0] && matchingProdAreaList[0].title;
     return title;
 };

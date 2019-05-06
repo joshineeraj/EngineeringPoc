@@ -18,7 +18,12 @@ var viewModel = {
     count: ko.observable(),
     messageText: ko.observable(""),
     getAuthToken: function(){
-        /* Authenticates user, gets the authToken and then Store it in global variable */
+        
+        /** Authenticates user, gets the authToken and then
+         * stores it in global variable
+         * This is necessary as we have implemented JWT authentication in our webapp.
+         * We have created a user for the authentication to the API endpoints.
+         */
         $.post(api_path + "/get-auth-token/", 
             {"username":"api_user", 
             "password":"api_password"

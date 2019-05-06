@@ -2,6 +2,12 @@
 An application interface to create feature requests. 
 A feature request is a request for a feature into the existing piece of software
 
+Application Structure
+---------------------
+Using 2 applications: 
+- **Feature Request (feature_req)**: Main application of the project and contains the datbase models of the application.
+- **API (api)**: Contains the API implementation (API endpoints and Serialization) for the application.
+Using two applications gives us a more modularised and flexible structure to work with.
 
 Prerequisites
 ----------------

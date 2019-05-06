@@ -1,14 +1,5 @@
 from feature_req.models import Client, ProductionArea, FeatureRequest
 from rest_framework import serializers
-from django.contrib.contenttypes.models import ContentType
-from django.contrib.auth import get_user_model
-
-from rest_framework.serializers import (
-    HyperlinkedIdentityField,
-    ModelSerializer,
-    SerializerMethodField,
-    ValidationError
-    )
 
 """
 Serializer for Client
