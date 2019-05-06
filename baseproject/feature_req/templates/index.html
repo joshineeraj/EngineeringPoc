@@ -81,11 +81,11 @@
                                         <th scope="row" data-bind="text: $index() + 1"></th>
                                         <td data-bind="text: title"></td>
                                         <td data-bind="text: description"></td>
-                                        <td data-bind="text: client"></td>
+                                        <td data-bind="text: getClient(client)"></td>
                                         <td data-bind="text: priority"></td>
-                                        <td data-bind="text: production_area"></td>
+                                        <td data-bind="text: getProductionAreaTitle(production_area)"></td>
                                         <td data-bind="text: target_date"></td>
-                                        </tr> 
+                                        </tr>
                                     </tbody>
                                     </table>
                         </div>

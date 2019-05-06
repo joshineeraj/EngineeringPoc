@@ -119,15 +119,17 @@ viewModel.errors = ko.validation.group([viewModel.title,
     viewModel.target_date]);
 
 viewModel.messageStatus = ko.pureComputed(function() {
+    var messageText = "Form looks valid and ready to be submitted.";
+    var returnClass = "alert alert-success";
     if(viewModel.errors().length > 0){
         viewModel.errors.showAllMessages(true);
-        viewModel.messageText("Please check your form for errors");
-        return ("alert alert-danger");
-    }else{
-        viewModel.messageText("Form looks valid and ready to be submitted.")
-        return ("alert alert-success");
+        messageText = "Please check your form for errors";
+        returnClass = "alert alert-danger";
     }
+    viewModel.messageText(messageText);
+    return (returnClass);
 });
+
 
 
 ko.applyBindings(viewModel);
@@ -139,4 +141,19 @@ $(document).ready(function() {
 
 });
 
+var getClient = function(client_id) {
+    var matchingClientList = viewModel.clients().filter(function(each_client){
+        return (each_client.id == client_id);
+    });
+    var title = matchingClientList[0] && matchingClientList[0].title;
+    return title;
+};
+
+var getProductionAreaTitle = function(production_area_id) {
+    var matchingProdAreaList = viewModel.productionAreas().filter(function(each_prod_area){
+        return (each_prod_area.id == production_area_id);
+    });
+    var title = matchingProdAreaList[0] && matchingProdAreaList[0].title;
+    return title;
+};
 
